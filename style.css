@@ -81,37 +81,56 @@ body {
     width: 24px;
     height: 24px;
 }
-
+.navbar ul li p{
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-14)/var(--unnamed-line-spacing-19) var(--unnamed-font-family-manrope);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-072635);
+    text-align: left;
+    font: normal normal bold 14px/19px Manrope;
+    letter-spacing: 0px;
+    color: #072635;
+    opacity: 1;
+}
+.navbar ul li.set p{
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-14)/var(--unnamed-line-spacing-19) var(--unnamed-font-family-manrope);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-707070);
+    text-align: left;
+    font: normal normal normal 14px/19px Manrope;
+    letter-spacing: 0px;
+    color: #707070;
+    opacity: 1;
+}
 
 .container {
     display: flex;
-    width: 100%;
 }
 .sidebar {
     width: 20%;
+    margin-left:20px;
     background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 12px;
     opacity: 1;
-    width: 300px;
+    width: 320px;
     height: 100vh;
     overflow-y: auto;
     position: relative;
 }
 /* Style the scrollbar */
 .sidebar::-webkit-scrollbar {
-    width: 12px; /* Width of the scrollbar */
+    width: 12px;
 }
 .sidebar::-webkit-scrollbar-track {
-    background: var(--unnamed-color-ededed); /* Background of the scrollbar track */
-    border-radius: 10px; /* Rounded corners for the track */
+    background: var(--unnamed-color-ededed);
+    border-radius: 10px;
 }
 .sidebar::-webkit-scrollbar-thumb {
-    background-color: var(--unnamed-color-072635); /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
-    border: 3px solid var(--unnamed-color-ededed); /* Padding around the thumb */
-    min-height: 50px; /* Minimum height of the scrollbar thumb */
-    max-height: 100px; /* Maximum height of the scrollbar thumb */
+    background-color: var(--unnamed-color-072635);
+    border-radius: 10px;
+    border: 3px solid var(--unnamed-color-ededed);
+    min-height: 50px;
+    max-height: 100px;
 }
 .sidebar-header {
     display: flex;
@@ -122,18 +141,23 @@ body {
     background-color: #FFFFFF;
     position: sticky;
     top: 0;
-    z-index: 1; /* Ensure it stays above other elements */
+    z-index: 1;
 }
 .sidebar-header h1 {
-    font-size: var(--unnamed-font-size-24);
-    font-weight: var(--unnamed-font-weight-bold);
+    margin: 0;
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-800) var(--unnamed-font-size-24)/var(--unnamed-line-spacing-33) var(--unnamed-font-family-manrope);
+    letter-spacing: var(--unnamed-character-spacing-0);
     color: var(--unnamed-color-072635);
-    margin: 0; /* Remove bottom margin to align properly */
+    text-align: left;
+    font: normal normal 800 24px/33px Manrope;
+    letter-spacing: 0px;
+    color: #072635;
+    opacity: 1;
 }
 .sidebar-header img[alt="search"] {
     width: 18px;
     height: 18px;
-    margin: 0; /* Remove bottom margin to align properly */
+    margin: 0;
 }
 .patient-list {
     list-style: none;
@@ -178,23 +202,32 @@ body {
     flex-direction: column;
 }
 .patient-name {
-    font-size: var(--unnamed-font-size-14);
-    font-weight: var(--unnamed-font-weight-bold);
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-14)/var(--unnamed-line-spacing-19) var(--unnamed-font-family-manrope);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-072635);
+    text-align: left;
+    font: normal normal bold 14px/19px Manrope;
+    letter-spacing: 0px;
+    color: #072635;
+    opacity: 1;
 }
 .patient-details {
     font-size: var(--unnamed-font-size-12);
     color: var(--unnamed-color-707070);
 }
 
-.info{
-    display: flex;
+
+.main-content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
 }
 
 .diagnosis-history {
     background: #FFFFFF;
     border-radius: 10px;
     padding: 10px;
-    margin: 20px;
+    margin-left: 20px;
     width: 600px;
     height:560px;
 }
@@ -204,151 +237,75 @@ body {
     color: var(--unnamed-color-072635);
     margin-bottom: 20px;
 }
-.chart-container {
-    background: var(--unnamed-color-f6f6f6);
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 20px;
-    width: 576px;
-}
-.chart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-.chart-label {
-    font-size: var(--unnamed-font-size-18);
-    font-weight: var(--unnamed-font-weight-bold);
-    color: var(--unnamed-color-072635);
-}
-.chart-legend {
-    display: flex;
-    gap: 10px;
-}
-.chart-legend span {
-    font-size: var(--unnamed-font-size-14);
-    font-weight: var(--unnamed-font-weight-normal);
-    color: var(--unnamed-color-072635);
-}
-.chart-legend .systolic {
-    color: var(--unnamed-color-0bd984);
-}
-.chart-legend .diastolic {
-    color: var(--unnamed-color-084c77);
-}
 .chart {
     background: #FFFFFF;
     border: 1px solid var(--unnamed-color-ededed);
     border-radius: 10px;
+    margin-bottom: 20px;
     padding: 20px;
-    height: 200px; /* Adjust based on your chart height */
-}
-.chart-footer {
-    display: flex;
-    justify-content: space-between;
-    font-size: var(--unnamed-font-size-14);
-    font-weight: var(--unnamed-font-weight-normal);
-    color: var(--unnamed-color-707070);
-    margin-top: 10px;
+    height: 280px;
 }
 .vital-signs {
     display: flex;
 }
-.vital-sign {
-    background: var(--unnamed-color-f6f6f6);
-    background: #E0F3FA 0% 0% no-repeat padding-box;
+.vital-sign, .vital-sign1, .vital-sign2 {
+    background: #E0F3FA;
     border-radius: 10px;
     padding: 10px;
     margin-right: 10px;
-    text-align: center;
     width: 30%;
 }
-.vital-sign1 {
-    background: var(--unnamed-color-f6f6f6);
-    background: #FFE6E9 0% 0% no-repeat padding-box;
-    border-radius: 10px;
-    padding: 10px;
-    margin-right: 10px;
-    text-align: center;
-    width: 30%;
+.vital-sign{
+    background: #E0F3FA;
 }
-.vital-sign span:first-child {
+.vital-sign1, .vital-sign2 {
+    background: #FFE6F1;
+}
+.vital-sign span, 
+.vital-sign1 span, 
+.vital-sign2 span {
     display: block;
-    font-size: var(--unnamed-font-size-14);
-    font-weight: var(--unnamed-font-weight-normal);
-    color: var(--unnamed-color-072635);
+    font-size: 14px;
+    font-weight: normal;
+    color: #072635;
     margin-bottom: 10px;
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-800) 30px/41px var(--unnamed-font-family-manrope);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-072635);
-    text-align: left;
-    font: normal normal 800 30px/41px Manrope;
-    letter-spacing: 0px;
+}
+.vital-sign h4, 
+.vital-sign1 h4, 
+.vital-sign2 h4{
+    font-size: 30px;
+    font-weight: 800;
     color: #072635;
+    text-align: left;
+    letter-spacing: 0;
     opacity: 1;
 }
-.vital-sign span:last-child {
-    font-size: var(--unnamed-font-size-18);
-    font-weight: var(--unnamed-font-weight-bold);
-    color: var(--unnamed-color-072635);
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-800) 30px/41px var(--unnamed-font-family-manrope);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-072635);
-    text-align: left;
-    font: normal normal 800 30px/41px Manrope;
-    letter-spacing: 0px;
-    color: #072635;
-    opacity: 1;
-}
-.vital-sign1 span:first-child {
-    display: block;
-    font-size: var(--unnamed-font-size-14);
-    font-weight: var(--unnamed-font-weight-normal);
-    color: var(--unnamed-color-072635);
-    margin-bottom: 10px;
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-800) 30px/41px var(--unnamed-font-family-manrope);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-072635);
-    text-align: left;
-    font: normal normal 800 30px/41px Manrope;
-    letter-spacing: 0px;
-    color: #072635;
-    opacity: 1;
-}
-.vital-sign1 span:last-child {
-    font-size: var(--unnamed-font-size-18);
-    font-weight: var(--unnamed-font-weight-bold);
-    color: var(--unnamed-color-072635);
-    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-800) 30px/41px var(--unnamed-font-family-manrope);
-    letter-spacing: var(--unnamed-character-spacing-0);
-    color: var(--unnamed-color-072635);
-    text-align: left;
-    font: normal normal 800 30px/41px Manrope;
-    letter-spacing: 0px;
-    color: #072635;
-    opacity: 1;
-}
-.vital-sign img{
+.vital-sign img, 
+.vital-sign1 img, 
+.vital-sign2 img {
     width: 80px;
 }
-.vital-sign1 img{
-    width: 80px;
+.vital-sign p, 
+.vital-sign1 p, 
+.vital-sign2 p{
+    text-align: left;
+    font: normal normal normal 14px/19px Manrope;
+    color: #072635;
+    opacity: 1;
 }
-
 
 .patient-profile {
     background-color: #FFFFFF;
     padding: 10px;
+    margin-left:20px;
     border-radius: 10px;
-    width: 300px;
+    max-width: 300px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     text-align: center;
-    font-family: Arial, sans-serif;
 }
 .patient-profile img[alt="pic"] {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
 }
 .patient-profile h2 {
@@ -356,11 +313,26 @@ body {
     font-size: 1.5em;
     margin: 10px 0;
 }
+.patient-profile ul li{
+    list-style: none;
+    text-align: left;
+    color: #072635;
+}
+.patient-profile ul li p{
+font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-14)/var(--unnamed-line-spacing-19) var(--unnamed-font-family-manrope);
+letter-spacing: var(--unnamed-character-spacing-0);
+color: var(--unnamed-color-072635);
+text-align: left;
+font: normal normal bold 14px/19px Manrope;
+letter-spacing: 0px;
+color: #072635;
+text-transform: capitalize;
+opacity: 1;
+}
 .details {
     display: flex;
     align-items: center;
     padding: 10px;
-    margin: 10px 0;
 }
 .details img {
     width: 42px;
@@ -378,7 +350,6 @@ body {
 .details span:last-child {
     flex: 2;
     text-align: left;
-    
 }
 button {
     background-color: #01F0D0;
@@ -399,36 +370,145 @@ button p {
 
 /* Container for the diagnosis list */
 .diagnosis-list {
-    margin: 10px; /* Adjust margin as needed */
+    margin-top: -40px;
+    margin-left: 20px;
     padding: 10px;
-    height: 200px; /* Set maximum height for scroll bar */
+    position: relative;
+    height: 200px;
     width:600px;
-    overflow-y: auto; /* Add vertical scroll bar when content overflows */
+    overflow-y: auto;
     background-color: #FFFFFF;
     border-radius: 10px;
+}
+.diagnosis-list::-webkit-scrollbar {
+    width: 12px;
+}
+.diagnosis-list::-webkit-scrollbar-track {
+    background: var(--unnamed-color-ededed);
+    border-radius: 10px;
+}
+.diagnosis-list::-webkit-scrollbar-thumb {
+    background-color: var(--unnamed-color-072635);
+    border-radius: 10px;
+    border: 3px solid var(--unnamed-color-ededed);
+    min-height: 50px;
+    max-height: 100px;
+}
+.diagnosis-list h2{
+    background-color: #FFFFFF;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-800) var(--unnamed-font-size-24)/var(--unnamed-line-spacing-33) var(--unnamed-font-family-manrope);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-072635);
+    text-align: left;
+    font: normal normal 800 24px/33px Manrope;
+    letter-spacing: 0px;
+    color: #072635;
+    opacity: 1;
 }
 /* Style for the table */
 .diagnosis-list table {
     width: 100%;
-    border-collapse: collapse;
 }
 /* Style for table headers */
 .diagnosis-list th {
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-bold) var(--unnamed-font-size-14)/var(--unnamed-line-spacing-19) var(--unnamed-font-family-manrope);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-072635);
     text-align: left;
-    background-color: #F6F7F8; /* Optional: Background color for headers */
-    border-radius: 10px;
-    padding: 8px;
+    font: normal normal bold 14px/19px Manrope;
+    letter-spacing: 0px;
+    color: #072635;
+    padding: 10px;
+    background: #F6F7F8 0% 0% no-repeat padding-box;
+    border-radius: 24px;
+    opacity: 1;
 }
 /* Style for table cells */
 .diagnosis-list td {
-    padding: 8px;
-    border-bottom: 1px solid #ddd; /* Optional: Bottom border for cells */
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-14)/var(--unnamed-line-spacing-19) var(--unnamed-font-family-manrope);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-072635);
+    text-align: left;
+    font: normal normal normal 14px/19px Manrope;
+    letter-spacing: 0px;
+    color: #072635;
+    opacity: 1;
 }
 /* Style for table rows */
 .diagnosis-list tr:hover {
-    background-color: #f5f5f5; /* Optional: Hover background color for rows */
+    background-color: #f5f5f5;
 }
 
+/*div class="lab**/
+
+.lab {
+    font-family: Arial, sans-serif;
+    background-color:#FFFFFF;
+    padding: 20px;
+    border-radius: 8px;
+}
+.lab h2 {
+    margin-bottom: 10px;
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-800) var(--unnamed-font-size-24)/var(--unnamed-line-spacing-33) var(--unnamed-font-family-manrope);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-072635);
+    text-align: left;
+    font: normal normal 800 24px/33px Manrope;
+    letter-spacing: 0px;
+    color: #072635;
+    opacity: 1;
+}
+.lab ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 140px;
+    overflow-y: auto;
+}
+.lab li {
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.lab li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+}
+.lab li a p{
+    font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-14)/var(--unnamed-line-spacing-19) var(--unnamed-font-family-manrope);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-072635);
+    text-align: left;
+    font: normal normal normal 14px/19px Manrope;
+    letter-spacing: 0px;
+    color: #072635;
+    text-transform: capitalize;
+    opacity: 1;
+}
+.lab li a img {
+    margin-left: auto;
+    height: 18px;
+}
+.lab ul::-webkit-scrollbar {
+    width: 12px;
+}
+.lab ul::-webkit-scrollbar-track {
+    background: var(--unnamed-color-ededed);
+    border-radius: 10px;
+}
+.lab ul::-webkit-scrollbar-thumb {
+    background-color: var(--unnamed-color-072635);
+    border-radius: 10px;
+    border: 3px solid var(--unnamed-color-ededed);
+    min-height: 50px;
+    max-height: 100px;
+}
 
 
 /* Ensure no horizontal overflow */

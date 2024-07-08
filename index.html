@@ -52,10 +52,10 @@
                         </a>
                         <ul>
                             <li>
-                                <span>Dr. Jane Doe</span>
+                                <p>Dr. Jose Simmones</p>
                             </li>
                             <li class="set">
-                                <span>Dr. Jane Doe</span>
+                                <p>General Practitioners</p>
                             </li>
                         </ul>
                     </div>
@@ -204,77 +204,93 @@
         <main class="main-content">
             <div class="diagnosis-history">
                 <h2>Diagnosis History</h2>
-                <div class="chart-container">
-                    <div class="chart-header">
-                        <div class="chart-label">Blood Pressure</div>
-                        <div class="chart-legend">
-                            <span class="systolic">Systolic</span>
-                            <span class="diastolic">Diastolic</span>
-                        </div>
-                    </div>
-                    <div class="chart">
-                        <!-- Chart SVG or Canvas goes here -->
-                    </div>
-                    <div class="chart-footer">
-                        <span>Oct 2023</span>
-                        <span>Nov 2023</span>
-                        <span>Dec 2023</span>
-                        <span>Jan 2024</span>
-                        <span>Feb 2024</span>
-                        <span>Mar 2024</span>
-                    </div>
+                <div class="chart">
+                    <canvas id="myChart"></canvas>
                 </div>
                 <div class="vital-signs">
                     <div class="vital-sign">
                         <img src="Assets/respiratory rate.svg" alt="Respiratory">
                         <span>Respiratory Rate</span>
-                        <span>20 bpm</span>
+                        <h4>20 bpm</h4>
+                        <p>Normal</p>
                     </div>
                     <div class="vital-sign1">
                         <img src="Assets/temperature.svg" alt="Temp">
                         <span>Temperature</span>
-                        <span>98.6°F</span>
+                        <h4>98.6°F</h4>
+                        <p>Normal</p>
                     </div>
-                    <div class="vital-sign1">
+                    <div class="vital-sign2">
                         <img src="Assets/HeartBPM.svg"alt="Heart">
                         <span>Heart Rate</span>
-                        <span>78 bpm</span>
+                        <h4>78 bpm</h4>
+                        <p>Lower Than Average</p>
                     </div>
                 </div>
             </div>
             <div class="patient-profile">
-                <img src="Assets/Layer 2.png" alt="pic">
-                <h2>Jessica Taylor</h2>
+                <img src="Assets/Layer 2.png" alt="pic" id="profilePic">
+                <h2 id="patienetName">Jessica Taylor</h2>
                 <div class="details">
                     <img src="Assets/BirthIcon.svg" alt="DOB">
-                    <span class="label">Date Of Birth</span>
-                    <span>August 23, 1996</span>
+                    <ul>
+                        <li>
+                            <span class="label">Date Of Birth</span>
+                        </li>
+                        <li>
+                            <p id="dob">August 23, 1996</p>
+                        </li>
+                    </ul>
                 </div>
                 <div class="details">
                     <img src="Assets/FemaleIcon.svg" alt="DOB">
-                    <span class="label">Gender</span>
-                    <span>Female</span>
+                    <ul>
+                        <li>
+                            <span class="label">Gender</span>
+                        </li>
+                        <li>
+                            <p id="gender">Female</p>
+                        </li>
+                    </ul>
                 </div>
                 <div class="details">
                     <img src="Assets/PhoneIcon.svg" alt="DOB">
-                    <span class="label">Contact Info.</span>
-                    <span>(415)-555-1234</span>
+                    <ul>
+                        <li>
+                            <span class="label">Contact Info.</span>
+                        </li>
+                        <li>
+                            <p id="phone">(415)-555-1234</p>
+                        </li>
+                    </ul>
                 </div>
                 <div class="details">
                     <img src="Assets/PhoneIcon.svg" alt="DOB">
-                    <span class="label">Emergency contacts</span>
-                    <span>(415)-555-5678</span>
+                    <ul>
+                        <li>
+                            <span class="label">Emergency contacts</span>
+                        </li>
+                        <li>
+                            <p id="emergencyContact">(415)-555-5678</p>
+                        </li>
+                    </ul>
                 </div>
                 <div class="details">
                     <img src="Assets/InsuranceIcon.svg" alt="DOB">
-                    <span class="label">Insurance Provider</span>
-                    <span>Sunrise Health Assurance</span>
+                    <ul>
+                        <li>
+                            <span class="label">Insurance Provider</span>
+                        </li>
+                        <li>
+                            <p id="insurance">Sunrise Health Assurance</p>
+                        </li>
+                    </ul>
                 </div>
                 <button><p>Show All Information</p></button>
             </div>
             <div class="diagnosis-list">
-                <h2>Diagnosis List</h2>
                 <div class="smallnav">
+                    <h2>Diagnosis List</h2>
                     <table>
                         <tr>
                             <th>Problem/Diagnosis</th>
@@ -310,36 +326,38 @@
                     <li>
                         <a href="#">
                             <p>Blood Test</p>
-                            <img src="Assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="">
+                            <img src="Assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="BT">
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <p>CT Scans</p>
-                            <img src="Assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="">
+                            <img src="Assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="CT">
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <p>Radiology reports</p>
-                            <img src="Assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="">
+                            <img src="Assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="Radiology">
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <p>X-rays</p>
-                            <img src="Assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="">
+                            <img src="Assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="x-ray">
                         </a>
                     </li>
                     <li>
                         <a href="#">
                             <p>Urine Test</p>
-                            <img src="Assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="">
+                            <img src="Assets/download_FILL0_wght300_GRAD0_opsz24 (1).svg" alt="urine">
                         </a>
                     </li>
                 </ul>
             </div>
         </main>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
