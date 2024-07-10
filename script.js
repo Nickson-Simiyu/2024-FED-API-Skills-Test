@@ -13,29 +13,126 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .then(data => {
             console.log('Data received:', data);
-            // Assuming data is structured correctly and contains the information you need
-            const jessica = data.find(patient => patient.name === 'Jessica Taylor');
-            if (jessica) {
-                updateProfile(jessica);
+            const jessicaList = data.filter(entry => entry.name.includes('Jessica'));
+    
+            if (jessicaList.length > 0) {
+                const jessica = jessicaList[0]; 
+                
+                document.getElementById('profilePic').src = jessica.profile_picture;
+                document.getElementById('patienetName').textContent = jessica.name;
+                document.getElementById('dob').textContent = jessica.date_of_birth;
+                document.getElementById('gender').textContent = jessica.gender;
+                document.getElementById('phone').textContent = jessica.phone_number;
+                document.getElementById('emergencyContact').textContent = jessica.emergency_contact;
+                document.getElementById('insurance').textContent = jessica.insurance_type;
+
+                const labResultsElements = document.querySelectorAll('.lab ul li a p');
+                jessica.lab_results.forEach((result, index) => {
+                    if (labResultsElements[index]) {
+                        labResultsElements[index].textContent = result;
+                    }
+                });
+
+                const diagnosisTableBody = document.querySelector('.diagnosis-list table tbody');
+                diagnosisTableBody.innerHTML = '';
+                jessica.diagnostic_list.forEach(diagnosis => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${diagnosis.name}</td>
+                        <td>${diagnosis.description}</td>
+                        <td>${diagnosis.status}</td>
+                    `;
+                    diagnosisTableBody.appendChild(row);
+                });
+
+                const latestDiagnosis = jessica.diagnosis_history[jessica.diagnosis_history.length - 1];
+                document.querySelector('.vital-sign h4').textContent = `${latestDiagnosis.respiratory_rate.value} bpm`;
+                document.querySelector('.vital-sign p').textContent = latestDiagnosis.respiratory_rate.levels;
+                document.querySelector('.vital-sign1 h4').textContent = `${latestDiagnosis.temperature.value}°F`;
+                document.querySelector('.vital-sign1 p').textContent = latestDiagnosis.temperature.levels;
+                document.querySelector('.vital-sign2 h4').textContent = `${latestDiagnosis.heart_rate.value} bpm`;
+                document.querySelector('.vital-sign2 p').textContent = latestDiagnosis.heart_rate.levels;
+
+                const labels = jessica.diagnosis_history.map(entry => `${entry.month} ${entry.year}`);
+                const systolicData = jessica.diagnosis_history.map(entry => entry.blood_pressure.systolic.value);
+                const diastolicData = jessica.diagnosis_history.map(entry => entry.blood_pressure.diastolic.value);
+
+                const data = {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Systolic',
+                            data: systolicData,
+                            borderColor: Utils.CHART_COLORS.red,
+                            backgroundColor: Utils.CHART_COLORS.red,
+                            fill: false,
+                            tension: 0.4,
+                            pointRadius: 5,
+                            pointBackgroundColor: Utils.CHART_COLORS.red,
+                        },
+                        {
+                            label: 'Diastolic',
+                            data: diastolicData,
+                            borderColor: Utils.CHART_COLORS.blue,
+                            backgroundColor: Utils.CHART_COLORS.blue,
+                            fill: false,
+                            tension: 0.4,
+                            pointRadius: 5,
+                            pointBackgroundColor: Utils.CHART_COLORS.blue,
+                        }
+                    ]
+                };
+
+                const config = {
+                    type: 'line',
+                    data: data,
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'right',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Blood Pressure',
+                                align: 'start',
+                            }
+                        },
+                        interaction: {
+                            intersect: false,
+                        },
+                        scales: {
+                            x: {
+                                display: true,
+                                title: {
+                                    display: true
+                                }
+                            },
+                            y: {
+                                display: true,
+                                title: {
+                                    display: true,
+                                    text: 'Value'
+                                },
+                                min: 60,
+                                max: 180,
+                                ticks: {
+                                    stepSize: 20
+                                }
+                            }
+                        }
+                    }
+                };
+
+                const ctx = document.getElementById('myChart').getContext('2d');
+                new Chart(ctx, config);
             } else {
-                console.error('Jessica Taylor not found in the data.');
+                console.log("No entries with the name 'Jessica' found.");
             }
         })
-        .catch(error => console.error('Fetch error:', error));
-
-    function updateProfile(patient) {
-        document.getElementById('profilePic').src = patient.profile_picture;
-        document.getElementById('patientName').textContent = patient.name;
-        document.getElementById('dob').textContent = patient.date_of_birth;
-        document.getElementById('gender').textContent = patient.gender;
-        document.getElementById('phone').textContent = patient.phone_number;
-        document.getElementById('emergencyContact').textContent = patient.emergency_contact;
-        document.getElementById('insurance').textContent = patient.insurance_type;
-    }
+        .catch(error => console.error('Error:', error));
 });
-
-
-
 
 const Utils = {
     CHART_COLORS: {
@@ -43,81 +140,4 @@ const Utils = {
         blue: 'rgb(54, 162, 235)',
         green: 'rgb(75, 192, 192)',
     }
-};
-
-const labels = ['Oct 2023', 'Nov 2023', 'Dec 2023', 'Jan 2024', 'Feb 2024', 'Mar 2024'];
-const datapoints1 = [120, 118, 160, 116, 150, 160];
-const datapoints2 = [110, 68, 110, 90, 70, 78];
-
-const data = {
-    labels: labels,
-    datasets: [
-    {
-        label: 'Systolic',
-        data: datapoints1,
-        borderColor: Utils.CHART_COLORS.red,
-        backgroundColor: Utils.CHART_COLORS.red,
-        fill: false,
-        tension: 0.4,
-        pointRadius: 5,
-        pointBackgroundColor: Utils.CHART_COLORS.red,
-    },
-    {
-        label: 'Diastolic',
-        data: datapoints2,
-        borderColor: Utils.CHART_COLORS.blue,
-        backgroundColor: Utils.CHART_COLORS.blue,
-        fill: false,
-        tension: 0.4,
-        pointRadius: 5,
-        pointBackgroundColor: Utils.CHART_COLORS.blue,
-    }
-    ]
-};
-
-const config = {
-    type: 'line',
-    data: data,
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                display: true,
-                position: 'right',
-            },
-        title: {
-            display: true,
-            text: 'Blood Pressure',
-            align: 'start',
-        }
-        },
-        interaction: {
-            intersect: false,
-        },
-        scales: {
-        x: {
-            display: true,
-            title: {
-                display: true
-            }
-        },
-        y: {
-            display: true,
-            title: {
-                display: true,
-                text: 'Value'
-            },
-            min: 60,
-            max: 180,
-            ticks: {
-                stepSize: 20
-            }
-        }
-        }
-    }
-};
-
-window.onload = function() {
-    const ctx = document.getElementById('myChart').getContext('2d');
-    new Chart(ctx, config);
 };

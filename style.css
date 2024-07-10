@@ -242,8 +242,8 @@ body {
     border: 1px solid var(--unnamed-color-ededed);
     border-radius: 10px;
     margin-bottom: 20px;
-    padding: 20px;
-    height: 280px;
+    padding: 10px;
+    height: 300px;
 }
 .vital-signs {
     display: flex;
